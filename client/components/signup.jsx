@@ -13,40 +13,21 @@ export default function SignUp() {
                     <input type="text" placeholder='Mobile number or email address' />
                     <input type="password" placeholder='New Password' />
                     <label htmlFor="dob">Date of Birth</label>
-                    <div className="day"><select >
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
-                        <option value="4"></option>
-                        <option value="5"></option>
-                        <option value="6"></option>
-                        <option value="7"></option>
-                        <option value="8"></option>
-                        <option value="9"></option>
-                        <option value="10"></option>
-                        <option value="11" selected="1"></option>
-                        <option value="12"></option>
-                        <option value="13"></option>
-                        <option value="14"></option>
-                        <option value="15"></option>
-                        <option value="16"></option>
-                        <option value="17"></option>
-                        <option value="18"></option>
-                        <option value="19"></option>
-                        <option value="20"></option>
-                        <option value="1"></option>
-                        <option value="1"></option>
-                        <option value="1"></option>
-                        <option value="1"></option>
-                        <option value="1"></option>
-                        <option value="1"></option>
-                        <option value="1"></option>
-                    </select>
-                    </div>
+                    <input type="date" name='dob' id='dob'/>
+                    <label htmlFor="gender">Gender</label>
+                    <input type="radio" name="female" id="female" />
+                    <input type="radio" name="male" id="male" />
+                    <input type="radio" name="custom" id="custom" onClick={customGen = () => {
+                        return (
+                        <select name="pronoun" id="pronoun">
+                            <option value="she">She</option>
+                            <option value="he">He</option>
+                            <option value="they">They</option>
+                        </select>
+                        )
+                    }}/>
 
-
-
-                </form>
+               </form>
             </div>
         </>
     )
