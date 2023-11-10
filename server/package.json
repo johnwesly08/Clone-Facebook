@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "run server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "John Wesly",
