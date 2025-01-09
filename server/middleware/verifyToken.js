@@ -8,11 +8,10 @@ const verifyToken = (req, res, next) => {
         return res.status(401).json("Access Denied. No Token provided");
     } 
 
-    jwt.verify(token, process.env.SECRET_[KEY], (err, decoded) => {
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
         if(err) {
-            return res.status(403).json("Invalid or Expired Token. ");
+            return res.status(403).json({error: "Invalid or Expired Token. "});
         }
-
         req.user = decoded;
         next();
     });

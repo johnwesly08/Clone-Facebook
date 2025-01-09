@@ -37,5 +37,5 @@ connectDB();
 
 //Start the server
 app.listen(PORT, () => {
-    console.log(`MongoDB connected successfully & Server running on PORT ${PORT}`);
+    console.log(`Server running on PORT ${PORT}`);
 });
