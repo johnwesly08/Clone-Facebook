@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import Login from '../components/login.jsx'
-import SignUp from '../components/signup.jsx';
 import DashBoard from '../components/Dashboard.jsx';
+import Register from './components/Register.jsx';
 
 
 export default function App() {
@@ -10,10 +9,9 @@ export default function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' exact Component={Login}/>
-          <Route path='/login' exact Component={Login}/>
-          <Route path='/signup'  Component={SignUp}/>
-          <Route path='dashboard' Component={DashBoard}/>
+          <Route path='/' exact Component={Register}/>
+          <Route path='/register'  Component={Register}/>
+          <Route path='/dashboard' Component={DashBoard}/>
         </Routes>
         <Outlet/>
       </Router>

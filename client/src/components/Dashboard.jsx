@@ -6,7 +6,7 @@ export default function DashBoard() {
     <div>
         <title>FaceBook</title>
         <navBar>
-            
+            this is the navbar
         </navBar>
     </div>
     </>
