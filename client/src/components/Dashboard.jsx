@@ -1,15 +1,12 @@
-import React from 'react'
+import React from "react";
 
 export default function DashBoard() {
   return (
     <>
-    <div>
+      <div>
         <title>FaceBook</title>
-        <navBar>
-            this is the navbar
-        </navBar>
-    </div>
+        <p>this is the test dashboard</p>
+      </div>
     </>
-  )
+  );
 }
-

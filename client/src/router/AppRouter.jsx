@@ -1,19 +1,23 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Register from "../components/Register";
 import DashBoard from "../components/Dashboard";
+import Register from "../components/Register";
 
-function AppRouter() {
+const AppRouter = () => {
+
+    const routes = [
+        {path: '/', element: <DashBoard />},
+        {path: '/dashboard', element: <DashBoard />},
+        {path: '/register', element: <Register/>},
+    ]
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={Register} />
-        <Route path="/register" element={Register} />
-        <Route path="/dashboard" element={DashBoard} />
+        {routes.map(({ path, element }, index) => (
+          <Route key={index} path={path} element={element} />
+        ))}
       </Routes>
-      <Outlet />
     </Router>
   );
-}
+};
 
 export default AppRouter;
