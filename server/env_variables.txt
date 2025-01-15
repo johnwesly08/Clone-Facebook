@@ -1,0 +1,4 @@
+MONGO_URI = your_mongo_uri_here
+SECRET_KEY = your_secret_key_here
+EXPIRY = your_expiry_time_here
+PORT = your_port_here
