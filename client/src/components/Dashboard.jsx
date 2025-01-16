@@ -5,7 +5,7 @@ export default function DashBoard() {
     <>
       <div>
         <title>FaceBook</title>
-        <p>this is the test dashboard</p>
+        <p>Welcome to Facebook</p>
       </div>
     </>
   );
