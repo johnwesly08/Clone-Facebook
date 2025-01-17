@@ -7,49 +7,65 @@ export default function Login() {
     password: "",
   });
 
-  const handleChange = async (e) => {
-    const {name, value} = e.target;
-    setFormData((prev)=> ({
-    ...prev, [name]: value,
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!formData.credential || formData.password) {
-        alert("Enter all the fields");
-        return; 
+    // Validation
+    if (!formData.credential || !formData.password) {
+      setError("Enter all fields");
+      return;
     }
 
+    setLoading(true);
+    setError("");
     try {
       const response = await loginUser(formData);
       console.log("Login Successful", response.data);
+      setSuccess(true);
     } catch (err) {
-      console.error("Login Failed", err);
+      setError("Login Failed. Check your credentials.");
+      console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="credential"
-          placeholder="UserName or Email"
-          value={formData.credential}
-          onChange={handleChange}
-        />
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="credential"
+        placeholder="Username or Email"
+        value={formData.credential}
+        onChange={handleChange}
+      />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+      />
 
-        <button type="submit">Login</button>
-      </form>
-    </>
+      {error && <p className="error">{error}</p>}
+      {success && <p className="success">Login Successful!</p>}
+
+      <button type="submit" disabled={loading}>
+        {loading ? "Logging in..." : "Login"}
+      </button>
+    </form>
   );
 }
