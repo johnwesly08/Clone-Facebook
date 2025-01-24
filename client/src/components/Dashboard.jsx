@@ -5,7 +5,7 @@ export default function DashBoard() {
     <>
       <div>
         <title>FaceBook</title>
-        <p>Welcome to Facebook</p>
+        <h3>This is My Dashbord</h3>
       </div>
     </>
   );
